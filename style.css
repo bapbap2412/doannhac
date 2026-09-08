@@ -149,15 +149,17 @@ body {
   left: 0; 
   bottom: 0;
   width: 0%;
-  background-color: rgba(250, 227, 23, 0.4); /* Đổi độ rõ màu tùy chọn */
+  background-color: rgba(250, 227, 23, 0.4);
   pointer-events: none;
   transition: width linear;
 }
 
-/* Play Button */
+/* Play Button & Volume Controls */
 .player-controls {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 16px;
   margin: 15px 0;
 }
 
@@ -181,6 +183,29 @@ body {
 
 .play-btn svg {
   margin-left: 3px;
+}
+
+/* Volume Control Styling */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #212224;
+  border: 1px solid #2d2f34;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+.volume-icon {
+  font-size: 16px;
+  user-select: none;
+}
+
+#volume-slider {
+  width: 80px;
+  height: 4px;
+  cursor: pointer;
+  accent-color: #53d726;
 }
 
 /* Search Section */
