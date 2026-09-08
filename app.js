@@ -42,6 +42,7 @@ const defaultSongs = [
   { title: "3107-3", artist: "W/n, Nâu & Duongg" }
 ];
 
+
 // Các mốc thời gian (giây)
 const timeSteps = [0.5, 1, 2, 4, 8, 15];
 const TOTAL_DURATION = 15;
@@ -70,6 +71,25 @@ const restartBtn = document.getElementById("restart-btn");
 const timeText = document.getElementById("time-text");
 const timeIndicator = document.getElementById("time-indicator");
 const progressFill = document.getElementById("progress-fill");
+const volumeSlider = document.getElementById("volume-slider");
+
+// Mặc định âm lượng 80%
+audio.volume = 0.8;
+
+// Xử lý sự kiện kéo thanh âm lượng
+if (volumeSlider) {
+  volumeSlider.addEventListener("input", (e) => {
+    const volumeValue = parseFloat(e.target.value);
+    audio.volume = volumeValue;
+
+    const volumeIcon = document.querySelector(".volume-icon");
+    if (volumeIcon) {
+      if (volumeValue === 0) volumeIcon.textContent = "🔇";
+      else if (volumeValue < 0.5) volumeIcon.textContent = "🔉";
+      else volumeIcon.textContent = "🔊";
+    }
+  });
+}
 
 // 🌐 HÀM GỌI API ITUNES
 async function fetchSongDataFromAPI(songObj) {
@@ -114,22 +134,18 @@ function updateTimeIndicator() {
 
 // 🎯 HÀM LẤY BÀI HÁT KHÔNG BỊ LẶP
 function getNextUnplayedIndex() {
-  // Nếu đã chơi hết tất cả các bài hát trong danh sách -> Reset lại mảng
   if (playedIndexes.length >= defaultSongs.length) {
     playedIndexes = [];
     console.log("🔄 Đã hoàn thành hết bài hát! Đang reset lại danh sách lượt chơi...");
   }
 
-  // Lọc ra danh sách các vị trí index CHƯA CHƠI
   const availableIndexes = defaultSongs
     .map((_, index) => index)
     .filter(index => !playedIndexes.includes(index));
 
-  // Chọn ngẫu nhiên 1 index trong danh sách bài chưa chơi
   const randomIndex = Math.floor(Math.random() * availableIndexes.length);
   const selectedIndex = availableIndexes[randomIndex];
 
-  // Lưu index này vào danh sách đã chơi
   playedIndexes.push(selectedIndex);
 
   return selectedIndex;
@@ -142,22 +158,18 @@ async function initGame() {
   if (suggestionsList) suggestionsList.innerHTML = "";
   resultModal.classList.add("hidden");
 
-  // Dừng nhạc cũ
   clearTimeout(playTimeout);
   audio.pause();
   audio.currentTime = 0;
   isPlaying = false;
 
-  // Khóa nút Play tạm thời trong lúc tải nhạc từ API
   playBtn.disabled = true;
   playBtn.style.opacity = "0.5";
   playBtn.style.cursor = "not-allowed";
 
-  // Lấy bài hát không bị lặp
   const selectedIndex = getNextUnplayedIndex();
   const selectedSong = defaultSongs[selectedIndex];
 
-  // Call API để lấy audioUrl và coverUrl
   const songData = await fetchSongDataFromAPI(selectedSong);
 
   if (songData && songData.audioUrl) {
@@ -169,12 +181,10 @@ async function initGame() {
     playBtn.style.opacity = "1";
     playBtn.style.cursor = "pointer";
   } else {
-    // Nếu lỗi kết nối bài này, tự chọn lại bài chưa chơi khác
     initGame();
     return;
   }
 
-  // Reset các ô đoán
   attemptsBoxes.forEach((box) => {
     box.className = "attempt-box";
     box.textContent = "";
