@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Songdle - Game Đoán Bài Hát</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header với Menu Icon và Logo chính giữa -->
+  <header class="navbar">
+    <button class="menu-btn" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <h1 class="logo">Name Song ?</h1>
+  </header>
+
+  <main class="game-container">
+    <!-- Danh sách các ô lượt đoán (6 ô) -->
+    <div class="attempts-container" id="attempts">
+      <div class="attempt-box"></div>
+      <div class="attempt-box"></div>
+      <div class="attempt-box"></div>
+      <div class="attempt-box"></div>
+      <div class="attempt-box"></div>
+      <div class="attempt-box"></div>
+    </div>
+
+    <!-- Thanh tiến trình thời gian nhạc (Timeline bar) -->
+    <div class="timeline-section">
+      <div class="time-indicator" id="time-indicator">
+        <span id="time-text">0.5 seconds</span>
+        <div class="arrow-down"></div>
+      </div>
+      <div class="timeline-bar">
+        <div class="segment step-05" id="seg-0"></div>
+        <div class="segment step-1" id="seg-1"></div>
+        <div class="segment step-2" id="seg-2"></div>
+        <div class="segment step-4" id="seg-3"></div>
+        <div class="segment step-8" id="seg-4"></div>
+        <div class="segment step-15" id="seg-5"></div>
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Nút Play màu xanh lá -->
+    <div class="player-controls">
+      <button id="play-btn" class="play-btn" aria-label="Play">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Ô tìm kiếm bài hát và nút Skip -->
+    <div class="search-section">
+      <div class="input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="song-input" placeholder="Search a song" autocomplete="off">
+        <div id="suggestions" class="suggestions-list"></div>
+      </div>
+      <button id="skip-btn" class="skip-btn">Skip</button>
+    </div>
+
+    <!-- Modal Popup kết quả -->
+    <div id="result-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="result-title">Result</h2>
+        <img id="result-cover" src="" alt="Album Cover">
+        <p id="result-song-info"></p>
+        <button id="restart-btn">Play Next</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
