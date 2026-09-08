@@ -1,56 +1,82 @@
 // Danh sách bài hát (Dùng API iTunes để tự lấy audio & cover)
 const defaultSongs = [
+  // JustaTee, LyLy, Mr.A
   { title: "Thằng Điên", artist: "JustaTee" },
   { title: "24H", artist: "LyLy" },
   { title: "Cô Đơn Không Muốn Về Nhà", artist: "Mr.A & Phạm Thùy Dung" },
-  { title: "Mặt Trời Của Em", artist: "Phương Ly ft. JustaTee" },
+
+  // MIN & Chi Pu
   { title: "Anh Ơi Ở Lại", artist: "Chi Pu" },
-  { title: "Có Em Chờ", artist: "Min" },
-  { title: "Vì Yêu Cứ Đâm Đầu", artist: "Min ft. Đen & JustaTee" },
-  { title: "Chưa Bao Giờ Mẹ Kể", artist: "Min ft. Erik" },
+  { title: "Có Em Chờ", artist: "MIN" },
+  { title: "Vì Yêu Cứ Đâm Đầu", artist: "MIN ft. Đen & JustaTee" },
+  { title: "Chưa Bao Giờ Mẹ Kể", artist: "MIN ft. Erik" },
+
+  // Vũ.
   { title: "Bước Qua Mùa Cô Đơn", artist: "Vũ." },
   { title: "Lạ Lùng", artist: "Vũ." },
   { title: "Một Ngày Mùa Thu", artist: "Vũ." },
   { title: "Đông Kiếm Em", artist: "Vũ." },
+
+  // MONO
   { title: "Em Là", artist: "MONO" },
   { title: "Waiting For You", artist: "MONO" },
   { title: "Đi Tìm Tình Yêu", artist: "MONO" },
+
+  // MONSTAR
   { title: "Có Hẹn Với Thanh Xuân", artist: "MONSTAR" },
   { title: "Tình Yêu Chậm Trễ", artist: "MONSTAR" },
+
+  // Châu Khải Phong, Xesi, Will
   { title: "Nếu Như Anh Thành Công", artist: "Châu Khải Phong" },
   { title: "Túy Âm", artist: "Xesi, Masew & Nhat Nguyen" },
   { title: "Khi Ta Có Nhau", artist: "Will" },
+
+  // Sơn Tùng M-TP
   { title: "Nơi Này Có Anh", artist: "Sơn Tùng M-TP" },
   { title: "Muộn Rồi Mà Sao Còn", artist: "Sơn Tùng M-TP" },
   { title: "Chúng Ta Của Hiện Tại", artist: "Sơn Tùng M-TP" },
   { title: "Có Chắc Yêu Là Đây", artist: "Sơn Tùng M-TP" },
-  { title: "Cắt Đôi Nỗi Sầu", artist: "Tăng Duy Tân" },
-  { title: "Bên Trên Tầng Lầu", artist: "Tăng Duy Tân" },
-  { title: "Dạ Vũ", artist: "Tăng Duy Tân" },
-  { title: "Tình Đầu Quá Chén", artist: "Quang Hùng MasterD" },
-  { title: "Thủy Triều", artist: "Quang Hùng MasterD" },
-  { title: "Dễ Đến Dễ Đi", artist: "Quang Hùng MasterD" },
-  { title: "Hạ Còn Vương Nắng", artist: "DatKaa" },
-  { title: "Có Không Giữ Mất Đừng Tìm", artist: "Trúc Nhân" },
-  { title: "Từng Quen", artist: "Wren Evans" },
-  { title: "Từng Quen", artist: "Wren Evans & itsnk" },
-  { title: "Va Vào Giai Điệu Này", artist: "RPT MCK" },
-  { title: "Chìm Sâu", artist: "RPT MCK ft. Trung Trần" },
-  { title: "Anh Đã Ổn Hơn", artist: "RPT MCK" },
-  { title: "Thích Em Hơi Nhiều", artist: "Wren Evans" },
-  { title: "3107", artist: "W/n, Nâu & Duongg" },
-  { title: "3107-3", artist: "W/n, Nâu & Duongg" },
-   { title: "Em Của Ngày Hôm Qua", artist: "Sơn Tùng M-TP" },
+  { title: "Em Của Ngày Hôm Qua", artist: "Sơn Tùng M-TP" },
   { title: "Chắc Ai Đó Sẽ Về", artist: "Sơn Tùng M-TP" },
   { title: "Lạc Trôi", artist: "Sơn Tùng M-TP" },
   { title: "Hãy Trao Cho Anh", artist: "Sơn Tùng M-TP ft. Snoop Dogg" },
   { title: "Âm Thầm Bên Em", artist: "Sơn Tùng M-TP" },
   { title: "Remember Me", artist: "Sơn Tùng M-TP" },
 
+  // Tăng Duy Tân
+  { title: "Cắt Đôi Nỗi Sầu", artist: "Tăng Duy Tân" },
+  { title: "Bên Trên Tầng Lầu", artist: "Tăng Duy Tân" },
+  { title: "Dạ Vũ", artist: "Tăng Duy Tân" },
+
+  // Quang Hùng MasterD, DatKaa, Trúc Nhân
+  { title: "Tình Đầu Quá Chén", artist: "Quang Hùng MasterD" },
+  { title: "Thủy Triều", artist: "Quang Hùng MasterD" },
+  { title: "Dễ Đến Dễ Đi", artist: "Quang Hùng MasterD" },
+  { title: "Hạ Còn Vương Nắng", artist: "DatKaa" },
+  { title: "Có Không Giữ Mất Đừng Tìm", artist: "Trúc Nhân" },
+
+  // Wren Evans & RPT MCK
+  { title: "Từng Quen", artist: "Wren Evans" },
+  { title: "Thích Em Hơi Nhiều", artist: "Wren Evans" },
+  { title: "Va Vào Giai Điệu Này", artist: "RPT MCK" },
+  { title: "Chìm Sâu", artist: "RPT MCK ft. Trung Trần" },
+  { title: "Anh Đã Ổn Hơn", artist: "RPT MCK" },
+
+  // W/n
+  { title: "3107", artist: "W/n, Nâu & Duongg" },
+  { title: "3107-2", artist: "W/n, Duongg & Nâu" },
+  { title: "3107-3", artist: "W/n, Nâu & Duongg" },
+  { title: "3107-4", artist: "W/n, Erik & Nâu" },
+  { title: "3107-7", artist: "W/n, Titie & Nâu" },
+  { title: "crush", artist: "W/n" },
+  { title: "id 0701", artist: "W/n" },
+  { title: "id 2022", artist: "W/n" },
+  { title: "i love you 3000", artist: "W/n" },
+  { title: "Simple Love", artist: "Obito, Seachains, Davis & W/n" },
+
   // Phương Ly
   { title: "Mặt Trời Của Em", artist: "Phương Ly ft. JustaTee" },
   { title: "Anh Là Ai", artist: "Phương Ly" },
-  { title: "Mặt Trời Của Em", artist: "Phương Ly" },
   { title: "Thích Thì Đến", artist: "Phương Ly" },
   { title: "Missing You", artist: "Phương Ly" },
   { title: "Chạy Khỏi Thế Giới Này", artist: "Phương Ly ft. Hoàng Dũng" },
@@ -61,7 +87,6 @@ const defaultSongs = [
   { title: "Gác Lại Âu Lo", artist: "Da LAB ft. Miu Lê" },
   { title: "Nước Mắt Em Lau Bằng Tình Yêu Mới", artist: "Da LAB ft. Tóc Tiên" },
   { title: "Thức Giấc", artist: "Da LAB" },
-  { title: "Chờ Tôi Nhé", artist: "Da LAB" },
 
   // SOOBIN
   { title: "Phía Sau Một Cô Gái", artist: "SOOBIN" },
@@ -69,17 +94,7 @@ const defaultSongs = [
   { title: "Tháng Năm", artist: "SOOBIN" },
   { title: "Ngày Mai Tôi Sẽ Thành Người Như Thế Nào", artist: "SOOBIN" },
   { title: "Nếu Ngày Ấy", artist: "SOOBIN" },
-  { title: "Dancing In The Dark", artist: "SOOBIN" },
-
-  // Cùng vibe
-  { title: "Có Em Chờ", artist: "MIN" },
-  { title: "Vì Yêu Cứ Đâm Đầu", artist: "MIN ft. Đen & JustaTee" },
-  { title: "Tình Yêu Chậm Trễ", artist: "MONSTAR" },
-  { title: "Có Hẹn Với Thanh Xuân", artist: "MONSTAR" },
-  { title: "Lạ Lùng", artist: "Vũ." },
-  { title: "Bước Qua Mùa Cô Đơn", artist: "Vũ." },
-  { title: "Thích Em Hơi Nhiều", artist: "Wren Evans" },
-  { title: "Từng Quen", artist: "Wren Evans" }
+  { title: "Dancing In The Dark", artist: "SOOBIN" }
 ];
 
 
