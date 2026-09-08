@@ -39,7 +39,47 @@ const defaultSongs = [
   { title: "Anh Đã Ổn Hơn", artist: "RPT MCK" },
   { title: "Thích Em Hơi Nhiều", artist: "Wren Evans" },
   { title: "3107", artist: "W/n, Nâu & Duongg" },
-  { title: "3107-3", artist: "W/n, Nâu & Duongg" }
+  { title: "3107-3", artist: "W/n, Nâu & Duongg" },
+   { title: "Em Của Ngày Hôm Qua", artist: "Sơn Tùng M-TP" },
+  { title: "Chắc Ai Đó Sẽ Về", artist: "Sơn Tùng M-TP" },
+  { title: "Lạc Trôi", artist: "Sơn Tùng M-TP" },
+  { title: "Hãy Trao Cho Anh", artist: "Sơn Tùng M-TP ft. Snoop Dogg" },
+  { title: "Âm Thầm Bên Em", artist: "Sơn Tùng M-TP" },
+  { title: "Remember Me", artist: "Sơn Tùng M-TP" },
+
+  // Phương Ly
+  { title: "Mặt Trời Của Em", artist: "Phương Ly ft. JustaTee" },
+  { title: "Anh Là Ai", artist: "Phương Ly" },
+  { title: "Mặt Trời Của Em", artist: "Phương Ly" },
+  { title: "Thích Thì Đến", artist: "Phương Ly" },
+  { title: "Missing You", artist: "Phương Ly" },
+  { title: "Chạy Khỏi Thế Giới Này", artist: "Phương Ly ft. Hoàng Dũng" },
+
+  // Da LAB
+  { title: "Thanh Xuân", artist: "Da LAB" },
+  { title: "Một Nhà", artist: "Da LAB" },
+  { title: "Gác Lại Âu Lo", artist: "Da LAB ft. Miu Lê" },
+  { title: "Nước Mắt Em Lau Bằng Tình Yêu Mới", artist: "Da LAB ft. Tóc Tiên" },
+  { title: "Thức Giấc", artist: "Da LAB" },
+  { title: "Chờ Tôi Nhé", artist: "Da LAB" },
+
+  // SOOBIN
+  { title: "Phía Sau Một Cô Gái", artist: "SOOBIN" },
+  { title: "Đi Để Trở Về", artist: "SOOBIN" },
+  { title: "Tháng Năm", artist: "SOOBIN" },
+  { title: "Ngày Mai Tôi Sẽ Thành Người Như Thế Nào", artist: "SOOBIN" },
+  { title: "Nếu Ngày Ấy", artist: "SOOBIN" },
+  { title: "Dancing In The Dark", artist: "SOOBIN" },
+
+  // Cùng vibe
+  { title: "Có Em Chờ", artist: "MIN" },
+  { title: "Vì Yêu Cứ Đâm Đầu", artist: "MIN ft. Đen & JustaTee" },
+  { title: "Tình Yêu Chậm Trễ", artist: "MONSTAR" },
+  { title: "Có Hẹn Với Thanh Xuân", artist: "MONSTAR" },
+  { title: "Lạ Lùng", artist: "Vũ." },
+  { title: "Bước Qua Mùa Cô Đơn", artist: "Vũ." },
+  { title: "Thích Em Hơi Nhiều", artist: "Wren Evans" },
+  { title: "Từng Quen", artist: "Wren Evans" }
 ];
 
 
