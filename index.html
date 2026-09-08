@@ -47,13 +47,19 @@
       </div>
     </div>
 
-    <!-- Nút Play màu xanh lá -->
+    <!-- Nút Play và Thanh điều chỉnh âm lượng -->
     <div class="player-controls">
       <button id="play-btn" class="play-btn" aria-label="Play">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
         </svg>
       </button>
+
+      <!-- Control âm lượng -->
+      <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.8">
+      </div>
     </div>
 
     <!-- Ô tìm kiếm bài hát và nút Skip -->
